@@ -1,1 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Core Values | Ziantech Solutions Sdn Bhd</title>
+<meta name="description" content="Ziantech Solutions core values: human capital, business strategy, software creation and why choose us.">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14161c;
+    --muted:#4b5160;
+    --line:#dfe2e8;
+    --bg:#ffffff;
+    --band:#f4f5f8;
+    --dark:#14161c;
+    --accent:#4b3a8f;
+    --accent-soft:#c9c1ee;
+    --pad:clamp(20px,5vw,64px);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'IBM Plex Sans',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.7;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  .label{font-family:'IBM Plex Mono',monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.16em;color:var(--muted)}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+  .bar{max-width:1200px;margin:0 auto;padding:12px var(--pad);display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .brand{display:flex;align-items:center}
+  .brand img{display:block;height:48px;width:auto;max-width:220px;object-fit:contain}
+  nav ul{display:flex;gap:28px;list-style:none}
+  nav a{font-size:.95rem;padding:6px 0;border-bottom:2px solid transparent;transition:border-color .2s,color .2s}
+  nav a:hover{border-color:var(--line)}
+  nav a[aria-current="page"]{border-color:var(--accent);color:var(--accent)}
+  .toggle{display:none;background:none;border:1px solid var(--line);width:44px;height:44px;cursor:pointer;color:var(--ink)}
+  .toggle svg{width:22px;height:22px}
+
+  /* Page title */
+  .wrap{max-width:1200px;margin:0 auto;padding:0 var(--pad)}
+  .title{padding:clamp(48px,8vw,96px) 0 clamp(28px,4vw,48px)}
+  .title .label{display:inline-block;padding-top:.7rem;border-top:2px solid var(--accent);min-width:200px}
+  .title h1{font-size:clamp(2.4rem,5.5vw,4.2rem);font-weight:400;letter-spacing:-.03em;line-height:1.05;margin-top:20px}
+
+  /* Content */
+  .values{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(32px,6vw,96px);align-items:start}
+  .col{display:flex;flex-direction:column}
+  .item{padding:28px 0;border-top:1px solid var(--line)}
+  .item h2{font-size:clamp(1.3rem,2vw,1.6rem);font-weight:400;letter-spacing:-.01em;line-height:1.3;margin-bottom:12px}
+  .item p{font-size:1.02rem;font-weight:300;color:var(--ink);max-width:36em;text-wrap:pretty}
+  .item p strong{font-weight:600;color:var(--accent)}
+  .item .n{display:block;margin-bottom:10px}
+  .figure{grid-row:span 2;margin-top:28px}
+  .figure img{display:block;width:100%;aspect-ratio:1/1.06;object-fit:cover;background:var(--band)}
+  .bottom{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(32px,6vw,96px);margin-top:12px}
+
+  /* Contact */
+  #contact{background:var(--dark);color:#eceef3;margin-top:clamp(64px,10vw,140px)}
+  .contact{max-width:1200px;margin:0 auto;padding:clamp(56px,8vw,104px) var(--pad);display:grid;grid-template-columns:1.2fr 1fr;gap:48px}
+  .contact h2{font-size:clamp(1.8rem,3.6vw,2.8rem);font-weight:400;letter-spacing:-.02em;line-height:1.15;text-wrap:balance}
+  .contact .label{color:var(--accent-soft);margin-bottom:16px;display:block}
+  .rows{border-top:1px solid #343846}
+  .row{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid #343846}
+  .row .label{color:#9aa1b2;margin:0;padding-top:3px}
+  .row address{font-style:normal}
+  .row a{border-bottom:1px solid #5b5f72;transition:border-color .2s,color .2s}
+  .row a:hover{color:var(--accent-soft);border-color:var(--accent-soft)}
+
+  footer{background:var(--dark);border-top:1px solid #343846;color:#9aa1b2}
+  footer .in{max-width:1200px;margin:0 auto;padding:20px var(--pad);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:.82rem}
+
+  @media (max-width:900px){
+    .toggle{display:inline-flex;align-items:center;justify-content:center}
+    nav{position:absolute;top:100%;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);display:none}
+    nav.open{display:block}
+    nav ul{flex-direction:column;gap:0;padding:8px var(--pad) 16px}
+    nav li{border-bottom:1px solid var(--line)}
+    nav li:last-child{border:0}
+    nav a{display:block;padding:14px 0;border-bottom:0}
+    .values,.bottom,.contact{grid-template-columns:1fr}
+    .figure{grid-row:auto;order:2;margin:8px 0 20px}
+    .figure img{aspect-ratio:4/3}
+  }
+  @media (max-width:480px){.row{grid-template-columns:1fr;gap:4px}.brand img{height:40px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a class="brand" href="index.html" aria-label="Ziantech Solutions Sdn Bhd - home">
+      <img src="logo.png" alt="Ziantech Solutions Sdn Bhd">
+    </a>
+    <button class="toggle" id="toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav id="menu" aria-label="Primary">
+      <ul>
+        <li><a href="index.html">Main</a></li>
+        <li><a href="core-values.html" aria-current="page">Core Values</a></li>
+        <li><a href="business-offerings.html">Business Offerings</a></li>
+        <li><a href="partnerships.html">Partnerships</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="title">
+      <span class="label">Core Values</span>
+      <h1>Core Values.</h1>
+    </div>
+
+    <div class="values">
+      <div class="col">
+        <section class="item">
+          <h2>Core Values Human Capital</h2>
+          <p>Our expertise in adapting and adopting new technologies is a KEY ASPECT of ours, and we are passionate about upholding values in all aspects of business. This includes how we serve our customers, interact with our colleagues, and engage with our partners and strategic alliances.</p>
+        </section>
+        <section class="item">
+          <h2>Business Strategy</h2>
+          <p>Our motto of 'less is for more' reflects our commitment to providing the right solutions that offer more value on deliverables while minimizing costs.</p>
+        </section>
+      </div>
+
+      <figure class="figure">
+        <img src="https://media.craiyon.com/2025-10-19/sEfjRCrISAGVMaGR5vrP8A.webp" alt="Glowing blue fibre optic light burst with bright core and floating molecular rings" loading="lazy">
+      </figure>
+
+      <div class="bottom">
+        <section class="item">
+          <h2>We Create</h2>
+          <p>At the core of ICT is always the heart of the system, which we believe is the software that drives it. Without the heart beating, the system cannot continue running. As such, we specialize in creating and developing application software.</p>
+        </section>
+        <section class="item">
+          <h2>Why Us?</h2>
+          <p>We provide the fundamental elements of a successful business: the right technologies, solutions, people, and customer service. By combining these elements, we design what is best for the future of our clients.</p>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>
+
+<section id="contact">
+  <div class="contact">
+    <div>
+      <span class="label">Contact</span>
+      <h2>Ziantech Solutions Sdn Bhd</h2>
+    </div>
+    <div class="rows">
+      <div class="row">
+        <span class="label">Address</span>
+        <address>No 17-1, Jalan Atmosphere 6,<br>Pusat Perniagaan Atmosphere,<br>43300 Seri Kembangan,<br>Selangor MALAYSIA</address>
+      </div>
+      <div class="row">
+        <span class="label">Phone</span>
+        <a href="tel:+60389539926">(60)3-8953 9926</a>
+      </div>
+      <div class="row">
+        <span class="label">Email</span>
+        <a href="mailto:info@ziantech.com">info@ziantech.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="in">
+    <span>© <span id="yr">2026</span> Ziantech Solutions Sdn Bhd</span>
+    <span>Seri Kembangan, Selangor, Malaysia</span>
+  </div>
+</footer>
+
+<script>
+  const t=document.getElementById('toggle'),m=document.getElementById('menu');
+  t.addEventListener('click',()=>{const o=m.classList.toggle('open');t.setAttribute('aria-expanded',o)});
+  m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{m.classList.remove('open');t.setAttribute('aria-expanded',false)}));
+  document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
 
